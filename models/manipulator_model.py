@@ -49,5 +49,8 @@ class ManiuplatorModel:
         beta = self.m2 * self.l1 * d2 + self.m3 * self.l1 * self.l2
 
         # Wspolczynniki macierzy C(q,q')
-        
-        return NotImplementedError()
+        c_11 = -beta * np.sin(q2) * q2_dot
+        c_12 = -beta * np.sin(q2) * (q1_dot + q2_dot)
+        c_21 = beta * np.sin(q2) * q1_dot
+        c_22 = 0
+        return np.array([[c_11, c_12], [c_21, c_22]])
