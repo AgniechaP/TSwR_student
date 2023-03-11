@@ -22,7 +22,22 @@ class ManiuplatorModel:
         (2DoF planar manipulator with the object at the tip)
         """
         q1, q2, q1_dot, q2_dot = x
-        return NotImplementedError()
+        # Dlugosci do srodkow mas:
+        d1 = self.l1 / 2
+        d2 = self.l2 / 2
+
+        # Zmienne pomocnicze
+        alpha = self.m1 * d1 ** 2 + self.I_1 + self.m2 * self.l1 ** 2 + self.m2 * d2 ** 2 + self.I_2 + self.m3 * self.l1 ** 2 + self.m3 * self.l2 ** 2 + self.I_3
+        beta = self.m2 * self.l1 * d2 + self.m3 * self.l1 * self.l2
+        gamma = self.m2 * d2 ** 2 + self.m3 * self.l2 ** 2 + self.I_2 + self.I_3
+
+        # Wspolczynniki macierzy M(q)
+        m_11 = alpha + 2 * beta * np.cos(q2)
+        m_12 = gamma + beta * np.cos(q2)
+        m_21 = gamma + beta * np.cos(q2)
+        m_22 = gamma
+
+        return np.array([[m_11, m_12], [m_21, m_22]])
 
     def C(self, x):
         """
@@ -30,4 +45,9 @@ class ManiuplatorModel:
         in the exercise (2DoF planar manipulator with the object at the tip)
         """
         q1, q2, q1_dot, q2_dot = x
+        d2 = self.l2 / 2
+        beta = self.m2 * self.l1 * d2 + self.m3 * self.l1 * self.l2
+
+        # Wspolczynniki macierzy C(q,q')
+        
         return NotImplementedError()
