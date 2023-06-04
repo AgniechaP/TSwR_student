@@ -19,10 +19,10 @@ traj_gen = Poly3(np.array([0., 0.]), np.array([pi/4, pi/6]), end)
 
 b_est_1 = 5
 b_est_2 = 5
-kp_est_1 = 50
-kp_est_2 = 50
-kd_est_1 = 50
-kd_est_2 = 50
+kp_est_1 = 30
+kp_est_2 = 30
+kd_est_1 = 150
+kd_est_2 = 150
 p1 = 50
 p2 = 50
 
