@@ -5,7 +5,7 @@ from models.manipulator_model import ManiuplatorModel
 
 class MMAController(Controller):
     def __init__(self, Tp):
-        # TODO: Fill the list self.models with 3 models of 2DOF manipulators with different m3 and r3
+        # DONE: Fill the list self.models with 3 models of 2DOF manipulators with different m3 and r3
         # I:   m3=0.1,  r3=0.05
         # II:  m3=0.01, r3=0.01
         # III: m3=1.0,  r3=0.3
@@ -18,7 +18,7 @@ class MMAController(Controller):
         self.prev_x = np.zeros(4)
         self.prev_u = np.zeros(2)
     def choose_model(self, x):
-        # TODO: Implement procedure of choosing the best fitting model from self.models (by setting self.i)
+        # DONE: Implement procedure of choosing the best fitting model from self.models (by setting self.i)
         # x = [q1, q2, q1_dot, q2_dot]
 
         # x_mi_dot and forward Euler
