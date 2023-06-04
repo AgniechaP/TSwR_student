@@ -32,7 +32,6 @@ class ADRFLController(Controller):
         B = np.zeros((6,2))
         self.eso = ESO(A, B, W, self.L, q0, Tp)
         self.update_params(q0[:2], q0[2:])
-        self.last_u = np.array([[0], [0]])
 
     def update_params(self, q, q_dot):
         ### DONE Implement procedure to set eso.A and eso.B
